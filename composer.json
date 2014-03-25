@@ -1,0 +1,27 @@
+{
+    "name": "a4m/zencoder",
+    "description": "A laravel wrapper around the zencoder API.",
+    "keywords": ["a4m", "api", "zencoder", "laravel"],
+    "homepage": "https://gitlab.advantage4me.co/shared/zencoder/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthew Hailwood",
+            "email": "matthew@webfox.co.nz",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "zencoder/zencoder-php": "v2.1.2"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "A4M\\Zencoder\\": "src",
+            "A4M\\Zencoder\\Tests\\": "tests"
+        }
+    }
+}
