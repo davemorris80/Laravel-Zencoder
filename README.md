@@ -51,6 +51,7 @@ The configuration file will be published here: `app/config/packages/a4m/zencoder
 ## Usage
 
 This is a simple wrapper around the official api, which means that everything you can do via [documented on the official API](https://github.com/zencoder/zencoder-php) can be done through ```Zencoder::``` with one exception; Laravel facades do not allow us direct access to the properties so we use accessor functions e.g.
+
 ```php
 Zencoder::accounts()->create($array);
 Zencoder::jobs()->create($array);
