@@ -67,3 +67,6 @@ We also have one more function `Zencoder::instance()` which simply returns the Z
 Zencoder::instance()->jobs->create($array);
 Zencoder::instance()->jobs = 'Something Else';
 ```
+
+Package provided by [Advantage4me™](http://advantage4me.co/) for the OSS community.
+
