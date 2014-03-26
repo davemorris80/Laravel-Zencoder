@@ -1,7 +1,7 @@
 {
     "name": "a4m/zencoder",
     "description": "A laravel wrapper around the zencoder API.",
-    "keywords": ["a4m", "api", "zencoder", "laravel"],
+    "keywords": ["a4m", "api", "zencoder", "laravel", "transcoding", "video", "audio", "thumbnails"],
     "homepage": "https://gitlab.advantage4me.co/shared/zencoder/",
     "license": "MIT",
     "authors": [
@@ -13,7 +13,8 @@
     ],
     "require": {
         "php": ">=5.4",
-        "zencoder/zencoder-php": "2.1.*"
+        "zencoder/zencoder-php": "2.1.*",
+        "illuminate/support": "4.1.x"
     },
     "require-dev": {
         "mockery/mockery": "dev-master@dev"
