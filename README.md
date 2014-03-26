@@ -1,6 +1,6 @@
 # Zencoder
 
-A laravel wrapper around the Zencoder API (Current version: v2.1.2)
+A laravel wrapper around the Zencoder API (Current version: v2.1.*)
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ You can install the package for your Laravel 4 project through Composer.
 Require the package in your `composer.json`.
 
 ```
-"a4m/zencoder": "dev-master"
+"a4m/zencoder": "1.0.*"
 ```
 
 Run composer to install or update the package.

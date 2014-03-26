@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "zencoder/zencoder-php": "v2.1.2"
+        "zencoder/zencoder-php": "2.1.*"
     },
     "require-dev": {
         "mockery/mockery": "dev-master@dev"
