@@ -1,6 +1,6 @@
 # Zencoder
 
-A laravel wrapper around the Zencoder API
+A laravel wrapper around the Zencoder API (Current version: v2.1.2)
 
 ## Table of Contents
 
@@ -50,13 +50,19 @@ The configuration file will be published here: `app/config/packages/a4m/zencoder
 
 ## Usage
 
-This is a simple wrapper around the official api, which means that everything you can do via [documented on the official API](https://github.com/zencoder/zencoder-php) can be done through ```Zencoder::``` e.g. 
+This is a simple wrapper around the official api, which means that everything you can do via [documented on the official API](https://github.com/zencoder/zencoder-php) can be done through ```Zencoder::``` with one exception; Laravel facades do not allow us direct access to the properties so we use accessor functions e.g.
 ```php
-Zencoder::accounts->create($array);
-Zencoder::jobs->create($array);
-Zencoder::jobs->progress($job_id);
-Zencoder::inputs->details($input_id);
-Zencoder::outputs->details($output_id);
-Zencoder::notifications->parseIncoming();
+Zencoder::accounts()->create($array);
+Zencoder::jobs()->create($array);
+Zencoder::jobs()->progress($job_id);
+Zencoder::inputs()->details($input_id);
+Zencoder::outputs()->details($output_id);
+Zencoder::notifications()->parseIncoming();
 ```
 
+We also have one more function `Zencoder::instance()` which simply returns the Zencoder instance allowing these properties to be set e.g.
+
+```php
+Zencoder::instance()->jobs->create($array);
+Zencoder::instance()->jobs = 'Something Else';
+```

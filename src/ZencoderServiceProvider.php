@@ -1,6 +1,7 @@
 <?php namespace A4M\Zencoder;
 
 use Illuminate\Support\ServiceProvider;
+use ReflectionClass;
 
 class ZencoderServiceProvider extends ServiceProvider {
 
@@ -19,7 +20,7 @@ class ZencoderServiceProvider extends ServiceProvider {
 				$apiKey = $config->get('zencoder::apiKey');
 			}
 
-			return new \Services_Zencoder(
+			return new Zencoder(
 				$apiKey,
 				$config->get('zencoder::apiVersion'),
 				$config->get('zencoder::apiHost'),
@@ -43,6 +44,13 @@ class ZencoderServiceProvider extends ServiceProvider {
 	 */
 	public function provides() {
 		return array('zencoder');
+	}
+
+	public function guessPackagePath()
+	{
+		$path = with(new ReflectionClass($this))->getFileName();
+
+		return realpath(dirname($path).'/');
 	}
 
 }
