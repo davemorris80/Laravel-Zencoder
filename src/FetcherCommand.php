@@ -59,6 +59,8 @@ class FetcherCommand extends Command {
 				}
 				$this->output->write("\r");
 			}
+		} else {
+			$this->getNotifications();
 		}
 	}
 
@@ -152,17 +154,21 @@ class FetcherCommand extends Command {
 			$this->info(count($response->notifications).' notifications fetched successfully');
 			$this->comment('Sending notifications to '.$this->option('url'));
 			foreach($response->notifications as $notification){
-				$request = Requests::post($this->option('url'), [], json_encode($notification));
-				if(!$request->success){
-					$this->error("There was an error forwarding the notifications: (code {$request->status_code})");
-					return false;
-				} else {
-					$this->info('Notifications sent');
-				}
+				$this->sendNotification($notification);
 			}
 		}
 
 		return true;
+	}
+
+	public function sendNotification($notification){
+		$request = Requests::post($this->option('url'), [], json_encode($notification));
+		if(!$request->success){
+			$this->error("There was an error forwarding the notifications: (code {$request->status_code})");
+			return false;
+		} else {
+			$this->info('Notifications sent');
+		}
 	}
 
 }
