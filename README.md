@@ -7,6 +7,7 @@ A laravel wrapper around the Zencoder API (Current version: v2.1.*)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
+- [Fetcher](#fetcher)
 
 ## Installation
 
@@ -67,6 +68,15 @@ We also have one more function `Zencoder::instance()` which simply returns the Z
 Zencoder::instance()->jobs->create($array);
 Zencoder::instance()->jobs = 'Something Else';
 ```
+
+## Fetcher
+Zencoder comes with a [nice little ruby gem](https://app.zencoder.com/docs/guides/advanced-integration/getting-zencoder-notifications-while-developing-locally) that acts as a proxy between their server and your local dev environment which is useful if you are developing behind a firewall since
+Zencoder cannot access your server to send you the notifications. The issue here of course is that it requires ruby to be installed for it to work.
+
+Being that we are developing with Laravel we might as well leverage the power of PHP so to the rescue comes `php artisan zencoder:notifications`. Which is a php port of the ruby gem.
+The port includes all the options that the ruby gem does which can be seen using `php artisan zencoder:notifications --help` or the detailed documentation via `php artisan zencoder:notifications --docs`.
+
+For the command to work you are required to setup the `receivingUrl` in the package configuration file along with the above settings.
 
 Package provided by [Advantage4me™](http://advantage4me.co/) for the OSS community.
 

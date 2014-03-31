@@ -26,6 +26,8 @@ class ZencoderServiceProvider extends ServiceProvider {
 				$config->get('zencoder::apiHost'),
 				$config->get('zencoder::apiDebug')
 			);
+
+
 		});
 
 	}
@@ -35,7 +37,15 @@ class ZencoderServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function register() { }
+	public function register() {
+
+		$this->app['command.zencoder.fetcher'] = $this->app->share(function($app){
+			return new FetcherCommand;
+		});
+
+		$this->commands(['command.zencoder.fetcher']);
+
+	}
 
 	/**
 	 * Get the services provided by the provider.
@@ -43,7 +53,7 @@ class ZencoderServiceProvider extends ServiceProvider {
 	 * @return array
 	 */
 	public function provides() {
-		return array('zencoder');
+		return array('zencoder', 'command.zencoder.fetcher');
 	}
 
 	public function guessPackagePath()

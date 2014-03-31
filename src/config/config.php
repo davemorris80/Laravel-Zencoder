@@ -40,6 +40,17 @@ return [
 	|
 	*/
 	'apiVersion'            => 'v2',
-	'apiHost'           => 'https://app.zencoder.com',
-	'apiDebug'              => false
+	'apiHost'               => 'https://app.zencoder.com',
+	'apiDebug'              => false,
+
+	/*
+	|--------------------------------------------------------------------------
+	| Fetcher configuration
+	|--------------------------------------------------------------------------
+	|
+	| These are for the zencoder:notifications command
+	|
+	*/
+
+	'receivingUrl'          => 'http://localhost:3000/'
 ];
