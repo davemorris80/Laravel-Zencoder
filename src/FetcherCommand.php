@@ -39,6 +39,7 @@ class FetcherCommand extends Command {
 	public function fire() {
 		if ($this->option('docs')) {
 			$this->showHelp();
+			return;
 		}
 
 		if ($this->option('loop')) {
@@ -92,6 +93,10 @@ class FetcherCommand extends Command {
 		$this->line('The number of notifications received can be specified using the <info>--count</info> option <comment>(default ' . $this->option('count') . ')</comment>');
 		$this->line('<error>Warning:</error> Notifications via the fetcher are not filtered to notifications that haven\'t been sent before. If you have created 1 new job since your last request, and request 10, you\'ll get the last 10 jobs.');
 		$this->line('Be sure to handle this in your application. You can also use this to your advantage when developing as you will not have to create a new job every time changes are made to your code.');
+
+		$this->line('');
+		$this->comment('Retrieving output from your notifications');
+		$this->line('Sometimes you might want to see what your server is returning when you send through the notifications, Just use the <info>--verbose</info> flag and any content returned from the server will be written to the console');
 	}
 
 	/**
@@ -119,7 +124,7 @@ class FetcherCommand extends Command {
 			['count', 'c', InputOption::VALUE_OPTIONAL, 'Specifies the number of notifications to retrieve. (default 50)', 50],
 			['page', 'p', InputOption::VALUE_OPTIONAL, 'Specifies the page to load.', 1],
 			['endpoint', 'e', InputOption::VALUE_OPTIONAL, 'The endpoint (Truth be told I have no idea!)', 'app'],
-			['since', 'm', InputOption::VALUE_OPTIONAL, 'Load notifications starting since n minutes ago']
+			['since', 'm', InputOption::VALUE_OPTIONAL, 'Load notifications starting since n minutes ago'],
 		];
 	}
 
@@ -165,8 +170,14 @@ class FetcherCommand extends Command {
 		$request = Requests::post($this->option('url'), [], json_encode($notification));
 		if(!$request->success){
 			$this->error("There was an error forwarding the notifications: (code {$request->status_code})");
+			if($this->option('verbose') || $this->confirm('Would you like to see the output? [Y/n] ', true)){
+				$this->line($request->body);
+			}
 			return false;
 		} else {
+			if($this->option('verbose')){
+				$this->line($request->body);
+			}
 			$this->info('Notifications sent');
 		}
 	}
