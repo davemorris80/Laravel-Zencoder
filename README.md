@@ -1,6 +1,6 @@
 # Zencoder
 
-A laravel wrapper around the Zencoder API (Current version: v2.1.*)
+A laravel wrapper around the Zencoder API (Current version: v2.2.*)
 
 ## Table of Contents
 
