@@ -1,5 +1,5 @@
 {
-    "name": "a4m/zencoder",
+    "name": "GC-Mark/Laravel-Zencoder",
     "description": "A laravel wrapper around the zencoder API.",
     "keywords": ["a4m", "api", "zencoder", "laravel", "transcoding", "video", "audio", "thumbnails"],
     "homepage": "https://gitlab.advantage4me.co/opensource/zencoder/",
@@ -19,7 +19,7 @@
     "require": {
         "php": ">=5.4",
         "zencoder/zencoder-php": "2.2.*",
-        "illuminate/support": "4.1.x",
+        "illuminate/support": "4.2.x",
         "rmccue/requests": ">=1.0",
         "nesbot/carbon": "1.8.0"
     },
