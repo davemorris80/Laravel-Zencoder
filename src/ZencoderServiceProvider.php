@@ -7,7 +7,7 @@ class ZencoderServiceProvider extends ServiceProvider {
 
 	public function boot() {
 
-		$this->package('a4m/zencoder', 'zencoder');
+		$this->package('GC-Mark/Laravel-Zencoder', 'zencoder');
 		$this->app['zencoder'] = $this->app->share(function ($app) {
 
 			/**
