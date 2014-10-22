@@ -1,3 +1,9 @@
+
+> **PLEASE NOTE:** This is a copy of the repo found here - https://gitlab.advantage4me.co/opensource/zencoder/. I created this 'fork' for use in my own projects as the previous version hasn't been updated to support Laravel 4.2
+
+
+
+
 # Zencoder
 
 A laravel wrapper around the Zencoder API (Current version: v2.2.*)
