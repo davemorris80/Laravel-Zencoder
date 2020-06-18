@@ -21,7 +21,7 @@
         "zencoder/zencoder-php": "2.2.*",
         "illuminate/support": "4.2.x",
         "rmccue/requests": ">=1.0",
-        "nesbot/carbon": "1.*"
+        "nesbot/carbon": "2.*"
     },
     "require-dev": {
         "mockery/mockery": "dev-master@dev"
